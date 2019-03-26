@@ -37,3 +37,7 @@ fieldset {
 a {
   color: RGB(236, 157, 83);
 }
+code {
+  color: #E4B842;
+  font-family: 'Source Code Pro',monospace;
+}
