@@ -134,15 +134,16 @@ var BCLS = (function(window, document) {
         video = videosArray[i];
         // video may not have a valid source
         if (isDefined(video.source) && isDefined(video.source.src)) {
-          videoURL = encodeURI(video.source.src.replace(/&/g, '&amp;'));
+          videoURL = encodeURI(video.source.src);
+          videoURL = videoURL.replace('%253D', '');
         } else {
           videoURL = "";
         }
         // depending on when/how the video was created, it may have different thumbnail properties or none at all
         if (isDefined(video.images) && isDefined(video.images.thumbnail)) {
-          thumbnailURL = encodeURI(video.images.thumbnail.sources[0].src.replace(/&/g, '&amp;'));
+          thumbnailURL = encodeURI(video.images.thumbnail.sources[0].src);
         } else if (isDefined(video.thumbnail)) {
-          thumbnailURL = encodeURI(video.thumbnail.replace(/&/g, '&amp;'));
+          thumbnailURL = encodeURI(video.thumbnail);
         } else {
           doThumbnail = false;
         }
@@ -198,6 +199,7 @@ var BCLS = (function(window, document) {
         options.requestType = 'GET';
         apiRequest.textContent = options.url;
         makeRequest(options, function(response) {
+console.log('response', response);
           videosArray = JSON.parse(response);
           console.log('videosArray', videosArray);
           createRequest('getVideoSources');
@@ -317,7 +319,7 @@ var BCLS = (function(window, document) {
       }
       playlist = (playlist_id.value) ? playlist_id.value : 2764931906001;
       // add title and description
-      mrssStr += sChannel + sTitle + feedTitle.value + eTitle + sDescription + feedDescription.value + eDescription + sLink + siteURL.value.replace(/&/g, '&amp;') + eLink + '<atom:link href="' + feedURL.value.replace(/&/g, '&amp;') + '" rel="self" type="application/rss+xml" />';
+      mrssStr += sChannel + sTitle + feedTitle.value + eTitle + sDescription + feedDescription.value + eDescription + sLink + siteURL.value + eLink + '<atom:link href="' + feedURL.value + '" rel="self" type="application/rss+xml" />';
       createRequest('getVideos');
     });
     feedDisplay.addEventListener('click', function() {

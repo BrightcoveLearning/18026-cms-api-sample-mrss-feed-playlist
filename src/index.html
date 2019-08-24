@@ -1,0 +1,40 @@
+<section class="bcls-section" id="workingSample">
+<h2>Playlist to MRSS</h2>
+
+<p>You can use the form below to generate a sample MRSS feed either for your own account or for a sample Brightcove account.</p>
+
+<fieldset class="bcls-fieldset"><legend>Input</legend>
+
+<p>If you do not enter account information, a Brightcove sample account will be used.</p>
+
+<p>Account id: <input id="account_id" type="text" value="" placeholder="5182475793001" /></p>
+
+<p>Client id: <input id="client_id" type="text" size="60" value="" placeholder="1c46b01a-6610-4a39-87c2-fe9253723912" /></p>
+
+<p>Client secret: <input id="client_secret" type="text" size="60" value="" placeholder="1p0oaoHBxuEfNFUdwkaILhFn0cWu__UFBY2Yj8-HgmEgXtWfPHqNCBGOC_AI__Xe3_IAMy8fUCNWSxy1Rk9CNg" /></p>
+
+<p>Site or video portal URL: <input type="text" size="40" id="siteURL" value="https://mysite.com" /> <span style="color:#FDCD0B;">Required!</span></p>
+
+<p>MRSS feed URL (atom link): <input type="text" size="40" id="feedURL" value="https://mysite.com/mrss.xml" /> <span style="color:#FDCD0B;">Required!</span></p>
+
+<p>Feed title: <input type="text" id="feedTitle" value="MRSS Feed" /></p>
+
+<p>Feed description: <input type="text" id="feedDescription" value="My MRSS Feed" /></p>
+
+<p>Playlist ID <input id="playlist_id" type="text" /></p>
+
+<p><button class="bcls-button" id="makeFeed">Generate the Feed</button></p>
+</fieldset>
+
+<fieldset class="bcls-fieldset"><legend>Output</legend>
+
+<p id="logger" style="color:rgb(237, 104, 38)">Waiting for input...</p>
+
+<p>Current API request</p>
+
+<pre>
+<code id="apiRequest">API request will appear here...</code></pre>
+
+<p>Generated MRSS feed</p>
+<textarea id="feedDisplay" style="width:95%;height:30em;"></textarea></fieldset>
+</section>
